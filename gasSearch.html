@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/mainstyles.css">
+    <title>Fuel Search</title>
+</head>
+
+<body>
+    <header>
+        <img class="fuelLogoImg" src="assets/fuelwatchNobg.png" alt="fuel watch logo">
+        <h2 style="margin-bottom: 50px;">Fuel Search</h2>
+    </header>
+
+    <div id=middle-container>
+
+
+        <label class="text-warning">Something</label><br>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-warning btn-lg">
+                <label for="customRange1">Di: 2.0 mi</label>
+                <input type="range" class="custom-range" min="0" max="50" step="0.5" id="customRange1">
+            </button>
+            <button type="button" class="btn btn-warning">Price $
+                <input type="number" step=".01" placeholder="0.00">
+            </button>
+        </div>
+
+
+
+
+        <br><br>
+        <table class="table table-hover table-sm bg-warning">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price per litre</th>
+                    <th scope="col">Distance in miles</th>
+                    <th scope="col">Place</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Puma</th>
+                    <td>$ 0.76</td>
+                    <td>0.5 mi</td>
+                    <td>Street 05 <br><a href="#">Go to maps</a></td>
+                </tr>
+                <tr>
+                    <th scope="row">Gulf</th>
+                    <td>$ 0.75</td>
+                    <td>1.3 mi</td>
+                    <td>Main road 3 <br><a href="#">Go to maps</a></td>
+                </tr>
+                <tr>
+                    <th scope="row">Shell</th>
+                    <td>$ 0.73</td>
+                    <td>2.0 mi</td>
+                    <td>Street 12 <br><a href="#">Go to maps</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <footer>
+        <button class="btn btn-dark ">
+            <a href="#">Need help?</a>
+        </button>
+
+        <br>
+        <span>
+            <img class="companyLogoImg" src="assets/Company logo NoBg.png" alt="Company logo">
+            <h6>Obelus Development Company</h6>
+        </span>
+
+    </footer>
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

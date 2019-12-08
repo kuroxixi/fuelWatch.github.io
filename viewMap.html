@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/mainstyles.css">
+    <title>View Map</title>
+    <style>
+        #map {
+            height: 600px;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+        <header style="margin-bottom: 5px;">
+                <img class="fuelLogoImg" src="assets/fuelwatchNobg.png" alt="fuel watch logo">
+                <h2>View Map</h2>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    
+                    <button type="button" class="btn btn-warning">
+                        <a href="index.html"><img class="menuImgLogos" src="assets/menuLogos/icons8-home-50.png" alt=""> Home</a>
+                    </button>
+                    
+                    <button type="button" class="btn btn-warning">
+                        <a href="repo"><img class="menuImgLogos" src="assets/menuLogos/icons8-form-50.png" alt=""> Report Fuel Price</a>
+                    </button>
+        
+                    <button type="button" class="btn btn-warning">
+                        <a href="gasSearch.html"><img class="menuImgLogos" src="assets/menuLogos/icons8-search-50.png" alt=""> Search</a>
+                        
+                    </button>
+                </div>
+        
+        
+        
+        
+            </header>
+
+
+
+
+    
+
+
+    <div id="map"></div>
+    <script>
+fetch("crime50k.json").then(response => response.json()).then(data => data.forEach(element => {console.log(data.Crimen)
+    
+}));
+
+
+
+
+        function initMap() {
+            // Map options
+            var options = {
+                zoom: 15,
+                center: {
+                    lat: 0,
+                    lng: 0
+                }
+            }
+
+
+
+            infoWindow = new google.maps.InfoWindow;
+
+            // Try HTML5 geolocation.
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+                    infoWindow.setPosition(pos);
+                    infoWindow.setContent('You are here');
+                    infoWindow.open(map);
+                    map.setCenter(pos);
+                }, function () {
+                    handleLocationError(true, infoWindow, map.getCenter());
+                });
+            } else {
+                // Browser doesn't support Geolocation
+                handleLocationError(false, infoWindow, map.getCenter());
+            }
+
+
+            function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+                infoWindow.setPosition(pos);
+                infoWindow.setContent(browserHasGeolocation ?
+                    'Error: The Geolocation service failed.' :
+                    'Error: Your browser doesn\'t support geolocation.');
+                infoWindow.open(map);
+            }
+
+
+
+
+
+            // New map
+            var map = new google.maps.Map(document.getElementById('map'), options);
+
+            // Listen for click on map
+            google.maps.event.addListener(map, 'click', function (event) {
+                // Add marker
+                addMarker({
+                    coords: event.latLng
+                });
+            });
+
+            /*
+            // Add marker
+            var marker = new google.maps.Marker({
+              position:{lat:42.4668,lng:-70.9495},
+              map:map,
+              icon:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+            });
+
+            var infoWindow = new google.maps.InfoWindow({
+              content:'<h1>Lynn MA</h1>'
+            });
+
+            marker.addListener('click', function(){
+              infoWindow.open(map, marker);
+            });
+            */
+
+            // Array of markers
+
+            var markers = [{
+
+
+
+                    coords: {
+                        lat: 18.394993,
+                        lng: -66.145340
+                    },
+                    content: '<b>Robbery<br>03/11/19</b>'
+                },
+                {
+                    coords: {
+                        lat: 18.393469,
+                        lng: -66.150517
+                    },
+                    content: '<b>Assault<br>02/23/19</b>'
+                },
+                {
+                    coords: {
+                        lat: 18.393769,
+                        lng: -66.143717
+                    },
+                    content: '<b>Armed Robbery<br>02/24/19</b>'
+                },
+                {
+                    coords: {
+                        lat: 18.394993,
+                        lng: -66.147740
+                    },
+                    content: '<b>Robbery<br>03/10/19</b>'
+                }
+            ];
+
+            // Loop through markers
+            for (var i = 0; i < markers.length; i++) {
+                // Add marker
+                addMarker(markers[i]);
+            }
+
+            // Add Marker Function
+            function addMarker(props) {
+                var marker = new google.maps.Marker({
+                    position: props.coords,
+                    map: map,
+                    //icon:props.iconImage
+                });
+
+                // Check for customicon
+                if (props.iconImage) {
+                    // Set icon image
+                    marker.setIcon(props.iconImage);
+                }
+
+                // Check content
+                if (props.content) {
+                    var infoWindow = new google.maps.InfoWindow({
+                        content: props.content
+                    });
+
+                    marker.addListener('click', function () {
+                        infoWindow.open(map, marker);
+                    });
+                }
+            }
+        }
+    </script>
+
+<footer>
+        <button class="btn btn-dark ">
+            <a href="#">Need help?</a>
+        </button>
+
+        <br>
+        <span>
+            <img class="companyLogoImg" src="assets/Company logo NoBg.png" alt="Company logo">
+            <h6>Obelus Development Company</h6>
+        </span>
+
+    </footer>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBl0ynr4wP4X2nGEjxqnj48fWxpcsJPgSc&callback=initMap">
+    </script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>

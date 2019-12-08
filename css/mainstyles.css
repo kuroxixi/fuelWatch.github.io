@@ -1,0 +1,49 @@
+body {
+    background-color: #022c43;
+    font-family: 'Roboto', sans-serif;
+   text-align: center;
+}
+select { 
+    text-align-last:center;
+ }
+
+ header{
+background-color: #053f5e;
+color: white;
+
+ }
+
+footer{
+    background-color: #115173;
+    position: relative;
+    bottom: 0;
+}
+
+
+.companyLogoImg{
+
+    height: 50px;
+    width: auto;    
+}
+
+ .fuelLogoImg{
+     
+     height: 100px;
+     width: 150px;
+ }
+
+ .menuImgLogos{
+    height: 15px;
+    width: auto
+ }
+
+ .homeButtons {
+    width: 300px !important;
+}
+
+.reportButtons {
+    width: 300px !important;
+}
+
+
+

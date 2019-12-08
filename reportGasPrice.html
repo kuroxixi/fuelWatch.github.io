@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/mainstyles.css">
+
+    <title>FuelWatch Report Fuel Price</title>
+</head>
+
+<body>
+    <header style="margin-bottom: 50px;">
+        <img class="fuelLogoImg" src="assets/fuelwatchNobg.png" alt="fuel watch logo">
+        <h2>Report Fuel Price</h2>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            
+            <button type="button" class="btn btn-warning">
+                <a href="index.html"><img class="menuImgLogos" src="assets/menuLogos/icons8-home-50.png" alt=""> Home</a>
+            </button>
+            
+            <button type="button" class="btn btn-warning">
+                <a href="viewMap.html"><img class="menuImgLogos" src="assets/menuLogos/icons8-map-50.png" alt=""> View Map</a>
+            </button>
+
+            <button type="button" class="btn btn-warning">
+                <a href="gasSearch.html"><img class="menuImgLogos" src="assets/menuLogos/icons8-search-50.png" alt=""> Search</a>
+                
+            </button>
+        </div>
+
+
+
+
+    </header>
+
+    <div class="middle-container">
+        <form action="" class="form-group">
+
+            <label class="text-warning">Date and Time</label><br>
+            <input class="btn btn-warning btn-lg" type="datetime-local">
+
+            <br><br>
+
+            <label class="text-warning">Type of fuel</label><br>
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-warning btn-lg">Regular</button>
+                <button type="button" class="btn btn-warning btn-lg">Premium</button>
+                <button type="button" class="btn btn-warning btn-lg">Diesel</button>
+            </div>
+
+            <br><br>
+
+            <label class="text-warning">Fuel Price by litre</label> <br>
+            <input class="btn btn-warning btn-lg " type="number" step=".01" placeholder="0.00">
+
+            <br><br>
+
+            <button class="btn btn-warning btn-lg">
+                Get Location <img src="assets/iconfinder_ic_my_location_48px_352557.svg" alt=""
+                    style="width: 15px;height: 15px;">
+            </button>
+
+            <br><br>
+
+            <div class="btn btn-warning btn-lg g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div> <br> <br>
+            <script>
+                function onSignIn(googleUser) {
+                    // Useful data for your client-side scripts:
+                    var profile = googleUser.getBasicProfile();
+                    console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+                    console.log('Full Name: ' + profile.getName());
+                    console.log('Given Name: ' + profile.getGivenName());
+                    console.log('Family Name: ' + profile.getFamilyName());
+                    console.log("Image URL: " + profile.getImageUrl());
+                    console.log("Email: " + profile.getEmail());
+
+                    // The ID token you need to pass to your backend:
+                    var id_token = googleUser.getAuthResponse().id_token;
+                    console.log("ID Token: " + id_token);
+                }
+            </script>
+
+            <label class="text-warning">This Submit button will become enabled<br>
+                after the vendor is singed-in trought <br>
+                their google bussines account</label> <br>
+            <button class="btn btn-warning btn-lg disabled">
+                Submit
+            </button>
+
+
+        </form>
+
+    </div>
+
+
+    <footer>
+        <button class="btn btn-dark ">
+            <a href="#">Need help?</a>
+        </button>
+
+        <br>
+        <span>
+            <img class="companyLogoImg" src="assets/Company logo NoBg.png" alt="Company logo">
+            <h6>Obelus Development Company</h6>
+        </span>
+
+    </footer>
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
