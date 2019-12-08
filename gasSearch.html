@@ -16,16 +16,53 @@
 </head>
 
 <body>
-    <header>
+    <header style="margin-bottom: 5px;">
         <img class="fuelLogoImg" src="assets/fuelwatchNobg.png" alt="fuel watch logo">
-        <h2 style="margin-bottom: 50px;">Fuel Search</h2>
+        <h2>Fuel Search</h2>
+        <div class="btn-group" role="group" aria-label="Basic example">
+
+            <button type="button" class="btn btn-warning">
+                <a href="index.html"><img class="menuImgLogos" src="assets/menuLogos/icons8-home-50.png" alt="">
+                    Home</a>
+            </button>
+
+            <button type="button" class="btn btn-warning">
+                <a href="repo"><img class="menuImgLogos" src="assets/menuLogos/icons8-form-50.png" alt=""> Report Fuel
+                    Price</a>
+            </button>
+
+            <button type="button" class="btn btn-warning">
+                <a href="viewMap.html"><img class="menuImgLogos" src="assets/menuLogos/icons8-map-50.png" alt=""> View
+                    Map</a>
+            </button>
+
+            </button>
+        </div>
+
+
+
+
     </header>
 
     <div id=middle-container>
 
 
-        <label class="text-warning">Something</label><br>
+        <label class="text-warning">Select Priority</label><br>
         <div class="btn-group" role="group" aria-label="Basic example">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                    value="option1">
+                <label class="form-check-label text-warning" for="inlineRadio1">Distance</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                    value="option2">
+                <label class="form-check-label text-warning" for="inlineRadio2">Price of fuel</label>
+            </div>
+        </div>
+
+        <div class="btn-group" role="group" aria-label="Basic example">
+
             <button type="button" class="btn btn-warning btn-lg">
                 <label for="customRange1">Distance: 2.0 mi</label>
                 <input type="range" class="custom-range" min="0" max="50" step="0.5" id="customRange1">
